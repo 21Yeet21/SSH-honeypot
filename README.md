@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # 🔐 SSH Honeypot — Live Threat Intelligence Dashboard
 
 A minimal, self-contained honeypot that captures real SSH brute-force attempts and visualizes them on a real-time analytics dashboard. Built to simulate a professional SOC analyst's workflow.
@@ -170,7 +169,3 @@ Real-world SSH honeypots typically capture:
 MIT
 
 *Built with paramiko, Flask, Chart.js & SQLite — 2026*
-=======
-# SSH-honeypot
-Live SSH brute-force honeypot with real-time threat intelligence dashboard
->>>>>>> 5ede8b0bf50fd13f71b328f8e688dce059b22847
