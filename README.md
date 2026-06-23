@@ -38,11 +38,11 @@ graph TB
 
 ### Dashboard Overview
 
-![Dashboard Overview](imgs/dashboard overview.png)
+![Dashboard Overview](imgs/dashboard-overview.png)
 
 ### Live Attack Feed
 
-![Live Attack Feed](imgs/live feed.png)
+![Live Attack Feed](imgs/live-feed.png)
 
 ---
 
@@ -99,7 +99,7 @@ ssh -p 8000 admin@192.168.1.XXX
 
 Any login attempt — **correct or wrong password** — will be captured and logged.
 
-![SSH Connection](imgs/ssh test.png)
+![SSH Connection](imgs/ssh-test.png)
 
 ### Optional — Simulate Attack Data
 
