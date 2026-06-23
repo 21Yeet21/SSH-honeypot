@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSH Honeypot — Live Analytics Dashboard</title>
+
+    <!-- Chart.js via CDN for all charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="dashboard">
+
+        <!-- ── Header ──────────────────────────────────────────────── -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="logo">
+                    <span class="logo-icon">&#9763;</span>
+                    SSH Honeypot
+                </h1>
+                <p class="tagline">Real-Time Threat Intelligence Dashboard</p>
+                <span id="live-indicator" class="live-dot"></span>
+            </div>
+        </header>
+
+        <!-- ── Main Grid ───────────────────────────────────────────── -->
+        <main class="main-grid">
+
+            <!-- Stats Cards Row -->
+            <section class="stats-cards">
+                <div class="stat-card">
+                    <div class="stat-icon cyan">&#128270;</div>
+                    <div class="stat-info">
+                        <span class="stat-label">Total Attacks</span>
+                        <span class="stat-value" id="total-attacks">—</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon purple">&#127760;</div>
+                    <div class="stat-info">
+                        <span class="stat-label">Unique IPs</span>
+                        <span class="stat-value" id="unique-ips">—</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon neon-green">&#128100;</div>
+                    <div class="stat-info">
+                        <span class="stat-label">Top Username</span>
+                        <span class="stat-value small" id="top-username">—</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon coral">&#128274;</div>
+                    <div class="stat-info">
+                        <span class="stat-label">Top Password</span>
+                        <span class="stat-value small" id="top-password">—</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Charts Row 1 -->
+            <section class="charts-row">
+                <div class="chart-container">
+                    <h2 class="chart-title">Attacks per Hour (Last 24h)</h2>
+                    <canvas id="attacks-per-hour-chart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h2 class="chart-title">Top 5 Usernames Targeted</h2>
+                    <canvas id="top-usernames-chart"></canvas>
+                </div>
+            </section>
+
+            <!-- Charts Row 2 -->
+            <section class="charts-row">
+                <div class="chart-container wide">
+                    <h2 class="chart-title">Most Targeted Accounts</h2>
+                    <canvas id="top-accounts-chart"></canvas>
+                </div>
+            </section>
+
+            <!-- Live Feed -->
+            <section class="live-feed-section">
+                <div class="live-feed-header">
+                    <h2 class="chart-title">Live Attack Feed</h2>
+                    <span class="pulse-label">LIVE</span>
+                </div>
+                <div class="table-wrapper">
+                    <table id="attacks-table">
+                        <thead>
+                            <tr>
+                                <th>Timestamp</th>
+                                <th>Source IP</th>
+                                <th>Username</th>
+                                <th>Password</th>
+                            </tr>
+                        </thead>
+                        <tbody id="attacks-tbody">
+                            <!-- Rows inserted by script.js -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2026 SSH Honeypot Portfolio — Cybersecurity Threat Intelligence</p>
+            <p class="footer-note">Powered by paramiko, Flask, Chart.js &amp; SQLite</p>
+        </footer>
+
+    </div>
+
+    <!-- Script -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
